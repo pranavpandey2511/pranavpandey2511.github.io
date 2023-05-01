@@ -1,0 +1,42 @@
+baseURL = 'https://pranavpandey2511.github.io/'
+languageCode = 'en-us'
+title = "Pranav's AI Blog"
+theme = 'hugo-PaperMod'
+
+[params]
+defaultTheme="dark"
+
+[params.homeInfoParams]
+title="Hello There 👋🏼"
+content="I am an AI research engineer"
+
+
+[[params.socialIcons]]
+name = "linkedin"
+url = "https://www.linkedin.com/in/pranavpandey25"
+
+[[params.social]]
+name = "twitter"
+url = "https://twitter.com/pranavpandey25"
+
+[[menu.main]]
+identifier = "About"
+name = "About"
+url = "/about/"
+weight = 10
+
+[[menu.main]]
+identifier = "Tags"
+name = "Tags"
+url = "/tags/"
+weight = 20
+
+[[menu.main]]
+identifier = "Archive"
+name = "Archive"
+url = "/archive/"
+weight = 30
+
+[params.disqus]
+shortname = "pranavpandey2511.disqus.com"
+
