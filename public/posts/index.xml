@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on Pranav&#39;s AI Blog</title>
+    <link>https://pranavpandey2511.github.io/posts/</link>
+    <description>Recent content in Posts on Pranav&#39;s AI Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 30 Apr 2023 18:34:26 +0530</lastBuildDate><atom:link href="https://pranavpandey2511.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Prompt Engineering for Humans</title>
+      <link>https://pranavpandey2511.github.io/posts/prompt_engineering/</link>
+      <pubDate>Sun, 30 Apr 2023 18:34:26 +0530</pubDate>
+      
+      <guid>https://pranavpandey2511.github.io/posts/prompt_engineering/</guid>
+      <description>Introduction This post talks about prompt engineering in LLMs. It is heavily inspired by OpenAI Cookbook, Andrew Ng course, and my personal experiments with ChatGPT.
+There are two types of Large Language Models (LLms) that we need to know about to differentiate between previous models like GPT, BERT, and ChatGPT, LLAMA, Open_assistant.
+Base LLMs Instruction Tuned LLMs Base LLMs are trained to predict next word These are trained to predict what the response should be a given input Row 2, Column 1 Row 2, Column 2 def get_result(): pass Basic Prompting $$</description>
+    </item>
+    
+  </channel>
+</rss>
