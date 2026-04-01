@@ -1,8 +1,8 @@
 ---
-title: "Inside Coding Agents: The Runtime Internals and AI Harnesses That Make Them Reliable"
+title: "Coding Agents in Production: Runtime Design and Evaluation Harnesses"
 date: 2026-04-01T09:00:00+05:30
 draft: true
-description: "A draft outline on how coding agents are wired internally and how to build the harnesses that keep them useful in production."
+description: "A draft outline on runtime design, tool execution, and evaluation harnesses for coding agents."
 summary: "A future essay on tool execution, state management, retrieval context, replayability, and the evaluation harnesses required to move from demo quality to dependable systems."
 tags:
   - agents

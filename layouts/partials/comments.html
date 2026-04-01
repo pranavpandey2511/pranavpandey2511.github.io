@@ -1,0 +1,17 @@
+{{- $comments := site.Params.comments -}}
+{{- if and $comments (eq $comments.provider "utterances") (eq .Section "posts") -}}
+<section class="comments-block">
+  <h2>Comments</h2>
+  <p class="comments-note">Comments are powered by GitHub issues.</p>
+  <script src="https://utteranc.es/client.js"
+          repo="{{ $comments.repo }}"
+          issue-term="{{ $comments.issueTerm | default "pathname" }}"
+          label="{{ $comments.label | default "comment" }}"
+          theme="{{ $comments.theme | default "github-light" }}"
+          crossorigin="anonymous"
+          async>
+  </script>
+</section>
+{{- else if and site.Params.disqus.shortname (eq .Section "posts") -}}
+{{- partial "disqus.html" . -}}
+{{- end -}}

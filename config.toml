@@ -14,7 +14,7 @@ email = "pranavpandey2511@gmail.com"
 
 [params]
 env = "production"
-description = "Pranav Pandey builds agentic AI systems, retrieval platforms, and production ML products across legal tech, sales automation, commerce, and perception."
+description = "Senior Applied AI Engineer at SpotDraft. I work on agentic AI systems, retrieval, and evaluation."
 keywords = ["Pranav Pandey", "Agentic AI", "Applied AI", "LLM Engineer", "RAG", "LangGraph", "SpotDraft", "Apollo.io"]
 defaultTheme = "light"
 ShowReadingTime = true
@@ -25,6 +25,13 @@ ShowCodeCopyButtons = true
 ShowToc = true
 ShowRssButtonInSectionTermList = true
 mainSections = ["posts"]
+
+[params.comments]
+provider = "utterances"
+repo = "pranavpandey2511/pranavpandey2511.github.io"
+issueTerm = "pathname"
+label = "comment"
+theme = "github-light"
 
 [params.assets]
 theme_color = "#11242b"

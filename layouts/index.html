@@ -1,271 +1,79 @@
 {{ define "main" }}
-{{ $posts := first 2 (where (where site.RegularPages "Section" "posts") "Params.hiddenInHomeList" "!=" true) }}
-
 <div class="portfolio-home">
-  <section class="hero-shell">
-    <div class="hero-copy">
-      <p class="eyebrow">Agentic AI systems, retrieval platforms, and production ML</p>
-      <h1>Pranav Pandey builds AI products that hold up when the workflow, the data, and the stakes all get real.</h1>
-      <p class="hero-lede">
-        I am a Senior Applied AI Engineer at SpotDraft, where I work on the platform and application layer behind agentic legal products such as VerifAI and Sidebar. My work sits at the intersection of agent orchestration, hybrid retrieval, model routing, evaluations, and product engineering, with an emphasis on turning ambitious AI ideas into dependable systems that teams actually use.
-      </p>
-      <div class="hero-actions">
-        <a class="button button-primary" href="{{ "/about/" | relURL }}">Read my story</a>
-        <a class="button button-secondary" href="{{ "/posts/" | relURL }}">Explore writing</a>
-        <a class="button button-tertiary" href="{{ "/Pranav_Pandey_Resume_2025_AI_Eng.pdf" | relURL }}">Download resume</a>
-      </div>
-      <ul class="signal-list">
-        <li>Built GenAI platform infrastructure at SpotDraft for contract review, legal research, and policy reasoning.</li>
-        <li>Helped drive 70%+ workflow efficiency gains and $500K in new product revenue within three months of private beta.</li>
-        <li>Built agentic assistants, evaluation harnesses, and ranking systems across SpotDraft and Apollo.io.</li>
-        <li>Previously shipped production ML across commerce, fitness, perception, healthcare, and edge deployment.</li>
-      </ul>
+  <section class="home-intro">
+    <p class="home-name">Pranav Pandey</p>
+    <h1>Senior Applied AI Engineer</h1>
+    <p class="home-summary">
+      I am a Senior Applied AI Engineer at SpotDraft. I work on AI products and the platform systems behind them, including orchestration, retrieval, model routing, and evaluation.
+    </p>
+    <p class="home-summary">
+      Previously, I worked on the AI assistant team at Apollo.io, co-founded Stybe, and built production ML systems across perception, computer vision, and real-time video at Motive, XTRA, and Wipro.
+    </p>
+    <div class="home-links">
+      <a href="{{ "/Pranav_Pandey_Resume_2025_AI_Eng.pdf" | relURL }}">Resume</a>
+      <a href="https://www.linkedin.com/in/pranavpandey25/">LinkedIn</a>
+      <a href="https://github.com/pranavpandey2511">GitHub</a>
+      <a href="{{ "/posts/" | relURL }}">Writing</a>
     </div>
+  </section>
 
-    <aside class="hero-panel">
-      <div class="panel-card panel-card-primary">
-        <p class="panel-kicker">Current focus</p>
-        <h2>Building trustworthy AI for high-context, high-accountability workflows.</h2>
-        <p>
-          My recent work centers on multi-agent orchestration, retrieval over complex knowledge sources, model selection and fallback strategies, and the evaluation loops that make AI systems safer to ship.
-        </p>
-      </div>
-      <div class="panel-card">
-        <p class="panel-kicker">Common stack</p>
-        <div class="chip-row">
-          <span>Python</span>
-          <span>LangGraph</span>
-          <span>LangChain</span>
-          <span>LiteLLM</span>
-          <span>FastAPI</span>
-          <span>OpenAI</span>
-          <span>Claude</span>
-          <span>Azure</span>
-          <span>GCP</span>
-          <span>Qdrant</span>
+  <section class="home-section">
+    <h2>Selected experience</h2>
+    <div class="experience-list">
+      <article class="experience-item">
+        <div class="experience-header">
+          <h3>SpotDraft</h3>
+          <p>2025 - present</p>
         </div>
-      </div>
-      <div class="panel-card">
-        <p class="panel-kicker">Working style</p>
         <p>
-          I like ambiguous product problems, messy data, and systems work that spans modeling, retrieval, infra, evaluation, and user experience. The through-line in my work is turning promising demos into products with leverage.
+          Working on products such as VerifAI and Sidebar. My work includes agent orchestration, retrieval over contracts and policies, model routing, and evaluation for legal workflows.
         </p>
-      </div>
-    </aside>
+      </article>
+
+      <article class="experience-item">
+        <div class="experience-header">
+          <h3>Apollo.io</h3>
+          <p>2025</p>
+        </div>
+        <p>
+          Worked on the AI assistant team and ranking systems. Built evaluation harnesses, agent workflows, and retrieval pipelines for sales use cases.
+        </p>
+      </article>
+
+      <article class="experience-item">
+        <div class="experience-header">
+          <h3>Stybe</h3>
+          <p>2023 - 2025</p>
+        </div>
+        <p>
+          Co-founded Stybe and built the search, recommendation, and personalization systems behind a fashion commerce product.
+        </p>
+      </article>
+
+      <article class="experience-item">
+        <div class="experience-header">
+          <h3>Motive, XTRA, Wipro</h3>
+          <p>2020 - 2023</p>
+        </div>
+        <p>
+          Built production ML systems across perception, facial recognition, video understanding, healthcare, and edge deployment.
+        </p>
+      </article>
+    </div>
   </section>
 
-  <section class="impact-band">
-    <article class="stat-card">
-      <p class="stat-value">70%+</p>
-      <p class="stat-label">Workflow efficiency gains delivered through SpotDraft's AI products</p>
-    </article>
-    <article class="stat-card">
-      <p class="stat-value">$500K</p>
-      <p class="stat-label">New product revenue generated in the first three months of private beta</p>
-    </article>
-    <article class="stat-card">
-      <p class="stat-value">75%+</p>
-      <p class="stat-label">URL prioritization coverage achieved at Apollo.io after rebuilding the ranking stack</p>
-    </article>
-    <article class="stat-card">
-      <p class="stat-value">1M+</p>
-      <p class="stat-label">Edge devices touched by earlier perception systems and deployment work</p>
-    </article>
-  </section>
-
-  <section class="home-section" id="focus">
-    <div class="section-heading">
-      <p class="eyebrow">What I build</p>
-      <h2>Systems where model intelligence is only one piece of the job.</h2>
+  <section class="home-section">
+    <h2>Writing</h2>
+    <p class="section-intro">
+      I write occasionally about coding agents, evaluation harnesses, retrieval systems, and shipping AI products in production.
+    </p>
+    <div class="writing-list">
       <p>
-        The strongest AI products come from the combination of retrieval quality, orchestration strategy, evaluation discipline, infrastructure judgment, and close contact with the real workflow. That is the layer I enjoy most.
+        Upcoming: <strong>Coding Agents in Production: Runtime Design and Evaluation Harnesses</strong>
       </p>
-    </div>
-    <div class="capability-grid">
-      <article class="capability-card">
-        <h3>Agent Orchestration</h3>
-        <p>
-          Designing multi-step and multi-agent workflows that can reason, call tools, recover from failure modes, and stay useful inside real product constraints.
-        </p>
-      </article>
-      <article class="capability-card">
-        <h3>Retrieval and Knowledge Systems</h3>
-        <p>
-          Building hybrid search, vector retrieval, semantic matching, and knowledge-backed reasoning systems for domains where context quality matters more than model bravado.
-        </p>
-      </article>
-      <article class="capability-card">
-        <h3>Evaluation Harnesses</h3>
-        <p>
-          Creating golden datasets, prompt and policy checks, regression loops, and quality metrics that let teams improve AI behavior intentionally instead of by anecdote.
-        </p>
-      </article>
-      <article class="capability-card">
-        <h3>Productizing AI</h3>
-        <p>
-          Moving from research or prototype energy to production leverage by owning the plumbing around latency, cost, reliability, observability, and user trust.
-        </p>
-      </article>
-    </div>
-  </section>
-
-  <section class="home-section" id="experience">
-    <div class="section-heading">
-      <p class="eyebrow">Selected work</p>
-      <h2>A career shaped by platform thinking, shipped systems, and cross-domain AI depth.</h2>
       <p>
-        My background spans legal tech, sales automation, AI-native commerce, perception, computer vision, and applied research. Across each environment, the work has been about building systems that survive contact with production.
+        Archive: <a href="{{ "/posts/" | relURL }}">Browse all posts</a>
       </p>
-    </div>
-    <div class="experience-grid">
-      <article class="experience-card experience-card-featured">
-        <div class="card-topline">
-          <span>SpotDraft</span>
-          <span>2025 to present</span>
-        </div>
-        <h3>Senior Applied AI Engineer</h3>
-        <p>
-          Architected and built GenAI platform infrastructure serving products such as VerifAI and Sidebar. The platform powers contract review, compliance checks, legal research, and agentic assistance for legal teams working inside high-context workflows.
-        </p>
-        <p>
-          I built orchestration flows with LangGraph, retrieval pipelines over contracts and policies, multi-model routing with LiteLLM, and evaluation patterns that kept responses consistent across legal use cases while helping the product scale quickly.
-        </p>
-      </article>
-
-      <article class="experience-card">
-        <div class="card-topline">
-          <span>Apollo.io</span>
-          <span>2025</span>
-        </div>
-        <h3>Senior Machine Learning Engineer</h3>
-        <p>
-          Core contributor on the AI assistant team, where I helped build chat-native workflows for lead generation, list creation, and email sequencing. I evaluated supervisor, mesh, and ReAct-style agent patterns and built a golden-dataset-based harness that reached 87% coverage.
-        </p>
-        <p>
-          I also rebuilt a URL prioritizer for large-scale company website scraping, expanding coverage from 35% to 75%+ and removing roughly $7,000 per month in spend through custom models.
-        </p>
-      </article>
-
-      <article class="experience-card">
-        <div class="card-topline">
-          <span>Stybe</span>
-          <span>2023 to 2025</span>
-        </div>
-        <h3>Co-Founder and CTO</h3>
-        <p>
-          Built the AI-native core of a constantly learning fashion commerce product, including conversational discovery, hybrid search, product matching, and feedback-driven personalization.
-        </p>
-        <p>
-          The platform blended sparse and dense retrieval, LLM-assisted tagging, semantic similarity, and user feedback loops to make fashion discovery feel closer to working with a personal stylist than a search box.
-        </p>
-      </article>
-
-      <article class="experience-card">
-        <div class="card-topline">
-          <span>Motive and XTRA</span>
-          <span>2021 to 2023</span>
-        </div>
-        <h3>Production ML Across Vision and Perception</h3>
-        <p>
-          Shipped facial recognition, multi-task perception models, and real-time pose-based systems across both edge and cloud contexts, including 100K+ daily predictions and deployments that reached more than one million devices.
-        </p>
-        <p>
-          Earlier work included activity recognition, browser-side scoring systems, and fitness recommendation products built from video understanding pipelines.
-        </p>
-      </article>
-
-      <article class="experience-card">
-        <div class="card-topline">
-          <span>Wipro and research</span>
-          <span>2020 to 2021</span>
-        </div>
-        <h3>Applied Research Foundations</h3>
-        <p>
-          Worked on document denoising with CycleGANs, one-shot symbol recognition, incremental learning, audio-based cough detection, and an explainable COVID detection app. Published work on pedestrian interaction and safety for autonomous vehicles.
-        </p>
-      </article>
-    </div>
-  </section>
-
-  <section class="home-section" id="systems">
-    <div class="section-heading">
-      <p class="eyebrow">Representative systems</p>
-      <h2>Projects that show how I think about modern AI products.</h2>
-      <p>
-        These are the kinds of systems I am most excited to keep building: multi-step assistants, robust evaluation loops, retrieval-heavy reasoning, and production ML that can be trusted under load.
-      </p>
-    </div>
-    <div class="project-grid">
-      <article class="project-card">
-        <p class="project-tag">Legal AI platform</p>
-        <h3>Sidebar and VerifAI</h3>
-        <p>
-          Agentic legal workflows for contract review, policy questions, compliance reasoning, and legal research, backed by retrieval over contracts, policies, and external legal sources.
-        </p>
-      </article>
-      <article class="project-card">
-        <p class="project-tag">Assistant quality</p>
-        <h3>AI evaluation harnesses</h3>
-        <p>
-          Golden datasets, strategy comparisons, and regression-oriented checks for tool-using assistants so product teams can improve quality with evidence instead of instinct.
-        </p>
-      </article>
-      <article class="project-card">
-        <p class="project-tag">Search and ranking</p>
-        <h3>Hybrid retrieval systems</h3>
-        <p>
-          Sparse plus dense retrieval, vector databases, semantic matching, and ranking systems used for both product discovery and high-coverage information extraction pipelines.
-        </p>
-      </article>
-      <article class="project-card">
-        <p class="project-tag">Edge and multimodal ML</p>
-        <h3>Perception at production scale</h3>
-        <p>
-          From driver identity and object tracking to pose estimation and healthcare-focused audio models, I have worked across the full path from modeling to deployment and monitoring.
-        </p>
-      </article>
-    </div>
-  </section>
-
-  <section class="home-section writing-section" id="writing">
-    <div class="section-heading">
-      <p class="eyebrow">Writing</p>
-      <h2>Notes on agent internals, evaluation harnesses, and shipping AI in the real world.</h2>
-      <p>
-        I am building this site into a place to write about the internals of coding agents, the design of practical AI harnesses, retrieval architecture, and the lessons that only show up after deployment.
-      </p>
-    </div>
-    <div class="writing-layout">
-      <article class="upcoming-card">
-        <p class="panel-kicker">Upcoming essay</p>
-        <h3>Inside Coding Agents: The Runtime Internals and AI Harnesses That Make Them Reliable</h3>
-        <p>
-          A deep dive into the moving parts inside productive coding agents: tool execution, state management, retrieval context, evaluation loops, replayability, and the harnesses required to make them dependable beyond demos.
-        </p>
-        <a class="text-link" href="{{ "/posts/" | relURL }}">Browse the writing section</a>
-      </article>
-
-      <div class="published-column">
-        <h3 class="published-heading">Published notes</h3>
-        {{ if gt (len $posts) 0 }}
-          {{ range $posts }}
-          <article class="writing-card">
-            <p class="project-tag">Published</p>
-            <h4><a href="{{ .RelPermalink }}">{{ .Title }}</a></h4>
-            <p>{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 180 }}{{ end }}</p>
-            <p class="writing-meta">{{ .Date.Format "January 2006" }}{{ with .ReadingTime }} - {{ . }} min read{{ end }}</p>
-          </article>
-          {{ end }}
-        {{ else }}
-          <article class="writing-card">
-            <p class="project-tag">Coming soon</p>
-            <h4>First essays are on the way</h4>
-            <p>
-              The writing section is set up to publish notes on agent runtimes, evaluation harnesses, retrieval systems, and practical lessons from shipping AI products.
-            </p>
-          </article>
-        {{ end }}
-      </div>
     </div>
   </section>
 </div>

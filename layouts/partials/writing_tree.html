@@ -1,0 +1,22 @@
+{{- $posts := where site.RegularPages "Section" "posts" -}}
+{{- if gt (len $posts) 0 -}}
+<aside class="writing-nav">
+  <h2>Browse writing</h2>
+  <div class="writing-nav-tree">
+    {{- range ($posts.GroupByDate "2006") }}
+    <details {{ if or (eq $.Section "posts") (eq $.Date.Format "2006" .Key) }}open{{ end }}>
+      <summary>{{ .Key }} <span>{{ len .Pages }}</span></summary>
+      <ul>
+        {{- range .Pages }}
+        <li>
+          <a href="{{ .RelPermalink }}" {{ if eq .Permalink $.Permalink }}class="active"{{ end }}>
+            {{ .Title }}
+          </a>
+        </li>
+        {{- end }}
+      </ul>
+    </details>
+    {{- end }}
+  </div>
+</aside>
+{{- end -}}
