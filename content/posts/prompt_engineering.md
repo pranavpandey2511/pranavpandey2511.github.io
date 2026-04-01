@@ -3,6 +3,7 @@ title: "Prompt Engineering for Humans"
 date: 2023-04-30T18:34:26+05:30
 draft: false
 comments: true
+hiddenInHomeList: true
 ---
 
 
@@ -22,13 +23,6 @@ There are two types of Large Language Models (LLms) that we need to know about t
 def get_result():
     pass
 ```
-
-<style>
-    table {
-        margin-left: auto;
-        margin-right: auto;
-    }
-</style>
 
 ## Basic Prompting
 

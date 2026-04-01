@@ -1,42 +1,75 @@
 baseURL = 'https://pranavpandey2511.github.io/'
 languageCode = 'en-us'
-title = "Pranav's AI Blog"
+title = "Pranav Pandey"
 theme = 'hugo-PaperMod'
+enableRobotsTXT = true
+paginate = 6
+
+[social]
+twitter = "pranavpandey25"
+
+[author]
+name = "Pranav Pandey"
+email = "pranavpandey2511@gmail.com"
 
 [params]
-defaultTheme="dark"
+env = "production"
+description = "Pranav Pandey builds agentic AI systems, retrieval platforms, and production ML products across legal tech, sales automation, commerce, and perception."
+keywords = ["Pranav Pandey", "Agentic AI", "Applied AI", "LLM Engineer", "RAG", "LangGraph", "SpotDraft", "Apollo.io"]
+defaultTheme = "light"
+ShowReadingTime = true
+ShowShareButtons = true
+ShowPostNavLinks = true
+ShowBreadCrumbs = true
+ShowCodeCopyButtons = true
+ShowToc = true
+ShowRssButtonInSectionTermList = true
+mainSections = ["posts"]
 
-[params.homeInfoParams]
-title="Hello There 👋🏼"
-content="I am an AI research engineer"
+[params.assets]
+theme_color = "#11242b"
+msapplication_TileColor = "#11242b"
 
+[caches]
+  [caches.images]
+  dir = ':cacheDir/images'
 
 [[params.socialIcons]]
 name = "linkedin"
-url = "https://www.linkedin.com/in/pranavpandey25"
+url = "https://www.linkedin.com/in/pranavpandey25/"
 
-[[params.social]]
+[[params.socialIcons]]
+name = "github"
+url = "https://github.com/pranavpandey2511"
+
+[[params.socialIcons]]
+name = "email"
+url = "mailto:pranavpandey2511@gmail.com"
+
+[[params.socialIcons]]
 name = "twitter"
 url = "https://twitter.com/pranavpandey25"
 
 [[menu.main]]
-identifier = "About"
+identifier = "about"
 name = "About"
 url = "/about/"
 weight = 10
 
 [[menu.main]]
-identifier = "Tags"
-name = "Tags"
-url = "/tags/"
+identifier = "writing"
+name = "Writing"
+url = "/posts/"
 weight = 20
 
 [[menu.main]]
-identifier = "Archive"
+identifier = "archive"
 name = "Archive"
-url = "/archive/"
+url = "/archives/"
 weight = 30
 
-[params.disqus]
-shortname = "pranavpandey2511.disqus.com"
-
+[[menu.main]]
+identifier = "resume"
+name = "Resume"
+url = "/Pranav_Pandey_Resume_2025_AI_Eng.pdf"
+weight = 40
