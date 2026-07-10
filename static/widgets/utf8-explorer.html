@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UTF-8 Byte Explorer</title>
+<style>
+  :root {
+    --bg: #ffffff; --fg: #1f2937; --muted: #6b7280;
+    --border: #e5e7eb; --card: #f9fafb; --accent: #4f46e5;
+    --b1: #dbeafe; --b2: #dcfce7; --b3: #fef9c3; --b4: #fce7f3;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1d1e20; --fg: #d4d4d4; --muted: #9ca3af;
+      --border: #333; --card: #2a2b2e; --accent: #a5b4fc;
+      --b1: #1e3a5f; --b2: #14432a; --b3: #453c14; --b4: #4a1d38;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 14px; color: var(--fg); background: var(--bg); padding: 14px; line-height: 1.5;
+  }
+  label { display: block; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin-bottom: 4px; }
+  input[type="text"] {
+    width: 100%; padding: 8px 10px; font: inherit; color: var(--fg);
+    background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+  }
+  input:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+  .chars { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .ch {
+    border: 1px solid var(--border); border-radius: 8px; padding: 6px 8px;
+    text-align: center; min-width: 62px;
+  }
+  .ch .glyph { font-size: 22px; line-height: 1.2; }
+  .ch .cp { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .ch .bytes { margin-top: 4px; display: flex; gap: 3px; justify-content: center; flex-wrap: wrap; }
+  .byte {
+    font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 11px;
+    padding: 1px 4px; border-radius: 4px;
+  }
+  .n1 { background: var(--b1); } .n2 { background: var(--b2); }
+  .n3 { background: var(--b3); } .n4 { background: var(--b4); }
+  .stats { margin-top: 12px; font-size: 13px; color: var(--muted); }
+  .stats b { color: var(--fg); font-variant-numeric: tabular-nums; }
+  .legend { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 10px; font-size: 11.5px; color: var(--muted); }
+  .legend span { display: inline-flex; align-items: center; gap: 4px; }
+  .swatch { width: 12px; height: 12px; border-radius: 3px; display: inline-block; border: 1px solid var(--border); }
+  .note { margin-top: 10px; font-size: 12px; color: var(--muted); }
+</style>
+</head>
+<body>
+  <label for="text">Type any text — ASCII, accents, symbols, emoji</label>
+  <input type="text" id="text" value="Hi! café 世界 😀">
+  <div class="chars" id="chars"></div>
+  <div class="stats" id="stats"></div>
+  <div class="legend">
+    <span><i class="swatch n1"></i>1 byte (ASCII)</span>
+    <span><i class="swatch n2"></i>2 bytes</span>
+    <span><i class="swatch n3"></i>3 bytes</span>
+    <span><i class="swatch n4"></i>4 bytes</span>
+  </div>
+  <p class="note">Every character is one or more Unicode code points; UTF-8 stores each code point as 1–4 bytes. ASCII stays 1 byte; accents and many scripts take 2–3; most emoji take 4. A byte-level tokenizer's alphabet is exactly these byte values (0–255) — which is why it can never hit an out-of-vocabulary character.</p>
+
+<script>
+  const enc = new TextEncoder();
+  const $ = id => document.getElementById(id);
+
+  function hex(b) { return b.toString(16).toUpperCase().padStart(2, "0"); }
+
+  function render() {
+    const text = $("text").value;
+    const cps = Array.from(text);          // split by code point (handles surrogate pairs)
+    const box = $("chars");
+    box.innerHTML = "";
+    let totalBytes = 0;
+    for (const ch of cps) {
+      const bytes = Array.from(enc.encode(ch));
+      totalBytes += bytes.length;
+      const cell = document.createElement("div");
+      cell.className = "ch";
+      const glyph = ch === " " ? "␣" : ch;
+      const cp = ch.codePointAt(0).toString(16).toUpperCase().padStart(4, "0");
+      cell.innerHTML =
+        `<div class="glyph">${glyph.replace("<","&lt;")}</div>` +
+        `<div class="cp">U+${cp}</div>` +
+        `<div class="bytes">${bytes.map(b => `<span class="byte n${bytes.length}">${hex(b)}</span>`).join("")}</div>`;
+      box.appendChild(cell);
+    }
+    $("stats").innerHTML =
+      `<b>${cps.length}</b> code points · <b>${totalBytes}</b> UTF-8 bytes · ` +
+      `<b>${(cps.length ? totalBytes / cps.length : 0).toFixed(2)}</b> bytes per code point`;
+  }
+
+  $("text").addEventListener("input", render);
+  render();
+</script>
+</body>
+</html>
