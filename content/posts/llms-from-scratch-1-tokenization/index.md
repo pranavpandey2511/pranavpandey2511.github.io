@@ -137,6 +137,14 @@ That's a real tokenizer — the same core algorithm as GPT-2's, minus production
 - **Pre-tokenization.** Production tokenizers first split text with a regex (on whitespace, letter/digit boundaries, etc.) and run BPE *within* those chunks, so merges never cross word boundaries. Without this you'd get tokens like `"the␣cat"` glued together.
 - **Special tokens.** Ids reserved for control markers — `<|endoftext|>`, chat-turn delimiters — that are never produced by merges and get handled outside the BPE logic.
 
+## Play with it
+
+Reading about BPE is one thing — watching it work is better. The playground below runs the exact algorithm from this post, live in your browser. Edit the training corpus, drag the merge slider from 0 upward, and watch characters fuse into subwords; then type your own text and see how it tokenizes:
+
+{{< widget src="widgets/bpe-playground.html" height="470" title="Interactive BPE tokenizer playground" >}}
+
+Notice how words that appear often in the corpus (`the`, `hug…`) collapse into single tokens after a few dozen merges, while rare words stay fragmented — that's the whole trick.
+
 ## The tokenizer families you'll meet in the wild
 
 - **Byte-level BPE** — GPT-2/3/4, Claude, Llama 3. What we just built.

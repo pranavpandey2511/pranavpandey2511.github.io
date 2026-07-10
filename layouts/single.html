@@ -65,4 +65,23 @@
   {{- end }}
 </article>
 
+<div class="reading-progress" aria-hidden="true"></div>
+<script>
+  (function () {
+    const bar = document.querySelector(".reading-progress");
+    if (!bar) return;
+    let ticking = false;
+    function update() {
+      const doc = document.documentElement;
+      const max = doc.scrollHeight - doc.clientHeight;
+      bar.style.width = (max > 0 ? (doc.scrollTop / max) * 100 : 0) + "%";
+      ticking = false;
+    }
+    window.addEventListener("scroll", function () {
+      if (!ticking) { requestAnimationFrame(update); ticking = true; }
+    }, { passive: true });
+    update();
+  })();
+</script>
+
 {{- end }}{{/* end main */}}

@@ -147,18 +147,10 @@ menu:
       name: Resume
       url: /resume/
       weight: 40
-    - identifier: search
-      name: Search
-      url: /search/
-      weight: 50
     - identifier: archives
       name: Archive
       url: /archives/
       weight: 60
-    - identifier: tags
-      name: Tags
-      url: /tags/
-      weight: 70
 
 taxonomies:
   category: categories

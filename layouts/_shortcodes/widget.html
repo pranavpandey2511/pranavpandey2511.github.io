@@ -1,0 +1,14 @@
+{{- /* Embed an interactive, self-contained HTML widget in a sandboxed iframe.
+     Usage: widget src="widgets/my-widget.html" height="520" title="Demo"
+     Looks up `src` as a page-bundle resource first, then as a site path
+     (put widget files in static/widgets/). */}}
+{{- $src := .Get "src" }}
+{{- $url := "" }}
+{{- with .Page.Resources.Get $src }}{{ with .RelPermalink }}{{ $url = . }}{{ end }}{{ end }}
+{{- if not $url }}{{ $url = $src | relURL }}{{ end }}
+<iframe class="post-widget"
+  src="{{ $url }}"
+  style="height: {{ .Get "height" | default "520" }}px"
+  loading="lazy"
+  sandbox="allow-scripts"
+  title="{{ .Get "title" | default "Interactive widget" }}"></iframe>

@@ -1,0 +1,15 @@
+{{- /* Filter chips for blog series, shown on the posts list and series term pages. */}}
+{{- $series := site.Taxonomies.series }}
+{{- if gt (len $series) 0 }}
+{{- $ctx := . }}
+{{- $isPostsList := eq .Section "posts" }}
+<div class="series-filter" role="navigation" aria-label="Filter posts by series">
+  <span class="series-filter-label">Filter:</span>
+  <a class="chip{{ if $isPostsList }} active{{ end }}" href="{{ "posts/" | absURL }}">All posts</a>
+  {{- range $series.ByCount }}
+  {{- with .Page }}
+  <a class="chip{{ if eq .Permalink $ctx.Permalink }} active{{ end }}" href="{{ .Permalink }}">{{ .Title }}<sup>{{ len .Pages }}</sup></a>
+  {{- end }}
+  {{- end }}
+</div>
+{{- end }}

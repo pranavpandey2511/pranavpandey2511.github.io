@@ -4,11 +4,152 @@
   --accent: #6366f1;
   --accent-strong: #4f46e5;
   --radius: 10px;
+  /* Wider content column (theme default: 720px) */
+  --main-width: 880px;
 }
 
 .dark {
   --accent: #818cf8;
   --accent-strong: #a5b4fc;
+}
+
+/* ---- Typography ---- */
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+code, pre, kbd, samp {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, monospace;
+}
+
+.post-content {
+  font-size: 16px;
+}
+
+.post-content code {
+  font-size: 0.86em;
+}
+
+.post-content pre code {
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.post-single .post-title {
+  font-size: 32px;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.post-content h2 {
+  font-size: 24px;
+  letter-spacing: -0.01em;
+}
+
+.post-content h3 {
+  font-size: 19px;
+}
+
+.post-description {
+  font-size: 15px;
+}
+
+.entry-header h2 {
+  font-size: 21px;
+  letter-spacing: -0.01em;
+}
+
+.page-header h1 {
+  font-size: 30px;
+  letter-spacing: -0.02em;
+}
+
+/* ---- Series filter chips ---- */
+
+.series-filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1.2rem 0 1.6rem;
+}
+
+.series-filter-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--secondary);
+}
+
+.series-filter .chip {
+  display: inline-block;
+  padding: 0.3em 0.9em;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--code-bg);
+  color: var(--primary);
+  font-size: 0.88rem;
+  font-weight: 500;
+  line-height: 1.5;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.series-filter .chip:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.series-filter .chip.active {
+  background: var(--accent-strong);
+  border-color: var(--accent-strong);
+  color: #fff;
+}
+
+.dark .series-filter .chip.active {
+  color: #1e1e2f;
+}
+
+.series-filter .chip sup {
+  margin-inline-start: 0.3em;
+  opacity: 0.7;
+  font-size: 0.75em;
+}
+
+/* ---- Header search icon ---- */
+
+#menu .nav-search svg {
+  vertical-align: middle;
+  margin-top: -2px;
+}
+
+/* ---- Interactive post widgets ---- */
+
+.post-widget {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: transparent;
+  margin: 1.2rem 0;
+}
+
+/* ---- Reading progress bar ---- */
+
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, var(--accent), var(--accent-strong));
+  transition: width 60ms linear;
 }
 
 /* Content links: accent color with subtle underline */
