@@ -1,0 +1,31 @@
+{{- /* Series box: shown at the top of any post with `series` in front matter.
+     Parts are ordered by `series_order`, falling back to date. */}}
+{{- $terms := .GetTerms "series" }}
+{{- with $terms }}
+{{- $term := index . 0 }}
+{{- $pages := sort (sort $term.Pages "Date" "asc") "Params.series_order" "asc" }}
+{{- $total := len $pages }}
+{{- $currentIdx := 0 }}
+{{- range $i, $p := $pages }}
+  {{- if eq $p.Permalink $.Permalink }}{{ $currentIdx = add $i 1 }}{{ end }}
+{{- end }}
+<div class="series-box">
+  <div class="series-box-header">
+    <span class="series-box-label">📚 Series</span>
+    <a class="series-box-title" href="{{ $term.Permalink }}">{{ $term.LinkTitle }}</a>
+    <span class="series-box-count">Part {{ $currentIdx }} of {{ $total }}</span>
+  </div>
+  <details class="series-box-parts"{{ if lt $total 8 }} open{{ end }}>
+    <summary>All parts in this series</summary>
+    <ol>
+      {{- range $i, $p := $pages }}
+      {{- if eq $p.Permalink $.Permalink }}
+      <li class="series-current"><span>{{ $p.Title }}</span> <em>— you are here</em></li>
+      {{- else }}
+      <li><a href="{{ $p.Permalink }}">{{ $p.Title }}</a></li>
+      {{- end }}
+      {{- end }}
+    </ol>
+  </details>
+</div>
+{{- end }}

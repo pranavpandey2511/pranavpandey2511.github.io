@@ -1,0 +1,31 @@
+{{- /* Previous/next part navigation for posts that belong to a series. */}}
+{{- $terms := .GetTerms "series" }}
+{{- with $terms }}
+{{- $term := index . 0 }}
+{{- $pages := sort (sort $term.Pages "Date" "asc") "Params.series_order" "asc" }}
+{{- $prev := "" }}{{- $next := "" }}
+{{- range $i, $p := $pages }}
+  {{- if eq $p.Permalink $.Permalink }}
+    {{- if gt $i 0 }}{{ $prev = index $pages (sub $i 1) }}{{ end }}
+    {{- if lt (add $i 1) (len $pages) }}{{ $next = index $pages (add $i 1) }}{{ end }}
+  {{- end }}
+{{- end }}
+{{- if or $prev $next }}
+<nav class="paginav series-nav">
+  {{- with $prev }}
+  <a class="prev" href="{{ .Permalink }}">
+    <span class="title">« Previous part</span>
+    <br>
+    <span>{{ .Title }}</span>
+  </a>
+  {{- end }}
+  {{- with $next }}
+  <a class="next" href="{{ .Permalink }}">
+    <span class="title">Next part »</span>
+    <br>
+    <span>{{ .Title }}</span>
+  </a>
+  {{- end }}
+</nav>
+{{- end }}
+{{- end }}

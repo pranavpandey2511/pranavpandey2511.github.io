@@ -94,6 +94,83 @@
   color: #1e1e2f !important;
 }
 
+/* ---- Blog series ---- */
+
+.series-box {
+  margin: 1.5rem 0 2rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border);
+  border-inline-start: 4px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--code-bg);
+}
+
+.series-box-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.6em;
+}
+
+.series-box-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--secondary);
+}
+
+.series-box-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--accent) !important;
+}
+
+.series-box-count {
+  margin-inline-start: auto;
+  font-size: 0.85rem;
+  color: var(--secondary);
+  white-space: nowrap;
+}
+
+.series-box-parts {
+  margin-top: 0.6rem;
+}
+
+.series-box-parts summary {
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--secondary);
+  user-select: none;
+}
+
+.series-box-parts ol {
+  margin: 0.5rem 0 0.2rem;
+  padding-inline-start: 1.5rem;
+}
+
+.series-box-parts li {
+  margin: 0.25rem 0;
+  font-size: 0.95rem;
+}
+
+.series-box-parts li a {
+  color: var(--accent);
+}
+
+.series-box-parts li.series-current span {
+  font-weight: 700;
+}
+
+.series-box-parts li.series-current em {
+  color: var(--secondary);
+  font-size: 0.85em;
+}
+
+.series-nav {
+  margin-top: 1.5rem;
+}
+
 /* Giscus comments area */
 .giscus-wrapper {
   margin-top: 2.5rem;
