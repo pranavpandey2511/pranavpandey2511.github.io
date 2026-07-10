@@ -1,0 +1,44 @@
+{{- $g := site.Params.giscus }}
+{{- if and $g.repo $g.repoId }}
+<div class="giscus-wrapper">
+  <script src="https://giscus.app/client.js"
+    data-repo="{{ $g.repo }}"
+    data-repo-id="{{ $g.repoId }}"
+    data-category="{{ $g.category }}"
+    data-category-id="{{ $g.categoryId }}"
+    data-mapping="{{ $g.mapping | default "pathname" }}"
+    data-strict="0"
+    data-reactions-enabled="{{ $g.reactionsEnabled | default "1" }}"
+    data-emit-metadata="{{ $g.emitMetadata | default "0" }}"
+    data-input-position="{{ $g.inputPosition | default "top" }}"
+    data-theme="preferred_color_scheme"
+    data-lang="{{ $g.lang | default "en" }}"
+    data-loading="{{ $g.loading | default "lazy" }}"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+<script>
+  (function () {
+    function giscusTheme() {
+      return document.body.classList.contains("dark") ? "dark" : "light";
+    }
+    function setGiscusTheme() {
+      const iframe = document.querySelector("iframe.giscus-frame");
+      if (!iframe) return;
+      iframe.contentWindow.postMessage(
+        { giscus: { setConfig: { theme: giscusTheme() } } },
+        "https://giscus.app"
+      );
+    }
+    // Sync once giscus finishes loading, then on every theme toggle
+    window.addEventListener("message", function (e) {
+      if (e.origin === "https://giscus.app") setGiscusTheme();
+    });
+    const toggle = document.getElementById("theme-toggle");
+    if (toggle) toggle.addEventListener("click", function () {
+      setTimeout(setGiscusTheme, 60);
+    });
+  })();
+</script>
+{{- end }}

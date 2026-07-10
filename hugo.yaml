@@ -1,0 +1,172 @@
+baseURL: "https://pranavpandey2511.github.io/"
+languageCode: "en-us"
+title: "Pranav Pandey"
+theme: "PaperMod"
+
+enableRobotsTXT: true
+enableEmoji: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+pagination:
+  pagerSize: 8
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+# JSON output on home page powers the built-in Fuse.js search
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+params:
+  env: production
+  mainSections:
+    - posts
+  title: "Pranav Pandey"
+  description: "Pranav Pandey — Senior Applied AI Engineer. Writing about GenAI, LLM agents, RAG, and production ML systems."
+  keywords:
+    - Pranav Pandey
+    - AI Engineer
+    - GenAI
+    - LLM
+    - RAG
+    - Machine Learning
+    - Multi-Agent Systems
+  author: "Pranav Pandey"
+  DateFormat: "January 2, 2006"
+  defaultTheme: auto
+  disableThemeToggle: false
+
+  # Global feature switches
+  comments: true
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShareButtons: ["x", "linkedin", "reddit", "whatsapp", "telegram"]
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowWordCount: true
+  ShowRssButtonInSectionTermList: true
+  ShowAllPagesInArchive: true
+  ShowToc: true
+  TocOpen: false
+  disableSpecial1stPost: true
+  hideSummary: false
+
+  assets:
+    favicon: "/favicon.svg"
+    apple_touch_icon: "/favicon.svg"
+    safari_pinned_tab: "/favicon.svg"
+    disableHLJS: true
+
+  homeInfoParams:
+    Title: "Hi, I'm Pranav 👋🏼"
+    Content: >
+      I'm a **Senior Applied AI Engineer** with 7+ years building production GenAI and ML
+      systems — multi-agent LLM platforms, RAG architectures, document pipelines processing
+      millions of documents, and deep-learning models running on 1M+ edge devices.
+      Currently at **SpotDraft**, where I lead engineering for Sidebar, AI agents for legal teams.
+      Former startup **CTO & co-founder**.
+
+
+      Here I write about LLM agents, retrieval, evals, and the craft of shipping AI systems
+      that actually work in production. Check out my [projects](/projects/),
+      [read the blog](/posts/), or [grab my resume](/pranav-pandey-resume.pdf).
+
+  socialIcons:
+    - name: github
+      title: "GitHub"
+      url: "https://github.com/pranavpandey2511"
+    - name: linkedin
+      title: "LinkedIn"
+      url: "https://www.linkedin.com/in/pranavpandey25"
+    - name: x
+      title: "X (Twitter)"
+      url: "https://x.com/pranavpandey25"
+    - name: email
+      title: "Email"
+      url: "mailto:pranavpandey2511@gmail.com"
+    - name: cv
+      title: "Resume"
+      url: "/pranav-pandey-resume.pdf"
+    - name: rss
+      title: "RSS Feed"
+      url: "/index.xml"
+
+  editPost:
+    URL: "https://github.com/pranavpandey2511/pranavpandey2511.github.io/tree/master/content"
+    Text: "Suggest changes"
+    appendFilePath: true
+
+  # Giscus comments (GitHub Discussions) — rendered by layouts/partials/comments.html
+  giscus:
+    repo: "pranavpandey2511/pranavpandey2511.github.io"
+    repoId: "R_kgDOJdF_Ow"
+    category: "Announcements"
+    categoryId: "DIC_kwDOJdF_O84DA4pE"
+    mapping: "pathname"
+    reactionsEnabled: "1"
+    emitMetadata: "0"
+    inputPosition: "top"
+    lang: "en"
+    loading: "lazy"
+
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 2
+    keys: ["title", "permalink", "summary", "content"]
+
+menu:
+  main:
+    - identifier: posts
+      name: Posts
+      url: /posts/
+      weight: 10
+    - identifier: projects
+      name: Projects
+      url: /projects/
+      weight: 20
+    - identifier: about
+      name: About
+      url: /about/
+      weight: 30
+    - identifier: resume
+      name: Resume
+      url: /resume/
+      weight: 40
+    - identifier: search
+      name: Search
+      url: /search/
+      weight: 50
+    - identifier: archives
+      name: Archive
+      url: /archives/
+      weight: 60
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 70
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    noClasses: false
+    codeFences: true
+    guessSyntax: true
+    lineNos: false
+    style: monokai
+
+sitemap:
+  changefreq: weekly
+  priority: 0.5
